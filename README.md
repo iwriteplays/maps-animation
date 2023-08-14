@@ -16,6 +16,6 @@ This is a fun "animated brochure" with the intention of attracting business to i
 More parallax and some animations + a carousel. `__home.php` and `css/sass/partials/home.scss`
 
 #### Communities
-[View on Wayback]()
+[View on Wayback](https://web.archive.org/web/20180820121729/http://northerncolorado.com/communities/)
 
 Hero area is a Google Maps API instance with pins pulled from WordPress data, and a custom image overlay. Most of the good stuff is in `community-map.php`
