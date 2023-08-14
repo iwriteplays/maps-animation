@@ -1,0 +1,303 @@
+ul,
+ol {
+    padding: 0;
+}
+a {
+    outline-width: 0px;
+    outline-style: none;
+    outline-color: transparent;
+}
+p,
+main {
+    a {
+        font-weight: bold;
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.text-bold {
+    font-weight: 700;
+}
+.btn {
+    white-space: normal;
+}
+.sep {
+    height: 6px;
+    @extend .grade;
+    &.green {
+        @include gradient-horizontal($green-dark, $green, 0%, 100%);
+    }
+}
+.menu-icon {
+    position: relative;
+    z-index: 1051;
+    float: right;
+    margin: 30px;
+    svg {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        @include translate3d(0, 0, 0);
+    }
+    path {
+        fill: none;
+        @include transition( stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke 200ms ease-in-out);
+        stroke-width: 40px;
+        stroke-linecap: square;
+        stroke: #fff;
+        stroke-dashoffset: 0px;
+        &#top {
+            stroke-dasharray: 240px 950px;
+        }
+        &#middle {
+            stroke-dasharray: 170px 240px;
+        }
+        &#bottom {
+            stroke-dasharray: 210px 950px;
+        }
+    }
+    &.cross path#top {
+        stroke-dashoffset: -604px;
+        stroke-dashoffset: -604px;
+        stroke-dasharray: 240px 950px;
+    }
+    &.cross path#bottom {
+        stroke-dashoffset: -564px;
+        stroke-dashoffset: -564px;
+        stroke-dasharray: 240px 950px;
+    }
+    &.cross path#middle {
+        stroke-dashoffset: -92px;
+        stroke-dasharray: 1px 220px;
+    }
+    &:hover {
+        svg path {
+            stroke: $lime;
+        }
+        &.cross {
+            svg path {
+                stroke: $orange;
+            }
+        }
+    }
+}
+header {
+    position: absolute;
+    width: 100%;
+    height: 185px;
+    z-index: 1505;
+    .logo {
+        float: left;
+        width: 17%;
+        margin: 60px;
+        @include transition(all 300ms ease-in-out);
+        &:hover {
+            @include scale(1.05);
+        }
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    text-transform: uppercase;
+}
+article {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3 {
+        margin-top: $line-height-computed;
+        margin-bottom: ($line-height-computed / 2);
+        small,
+        .small {
+            font-size: 65%;
+        }
+    }
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        margin-top: ($line-height-computed / 2);
+        margin-bottom: ($line-height-computed / 2);
+        small,
+        .small {
+            font-size: 75%;
+        }
+    }
+}
+// footer
+footer {
+    background-color: $gray-main-dark;
+    padding: $grid-gutter-width*3 0;
+    .logo {
+        @include make-sm-column(5);
+        a {
+            &:hover img {
+                @include scale(1.05);
+            }
+        }
+        img {
+            @include transition(all 500ms ease-in-out);
+            margin-top: 50px;
+        }
+    }
+    .footer-nav {
+        @include make-sm-column(5);
+        @include make-sm-column-offset(2);
+        li:not(.social) {
+            list-style: none;
+            background: none;
+            line-height: $line-height-computed*1.2;
+            span,
+            &.menu-item-49 {
+                display: none;
+            }
+            > ul,
+            .collapse,
+            .collapse.in {
+                display: none;
+            }
+            a {
+                text-transform: uppercase;
+                color: $lime;
+                @include transition(all 200ms ease-in-out);
+                &:hover {
+                    color: $orange;
+                    text-decoration: none;
+                }
+                &:active,
+                &:visited {
+                    text-decoration: none;
+                }
+            }
+            &.panel {
+                margin-bottom: 0;
+            }
+            &.menu-item-118 {
+                margin-top: $line-height-computed;
+                a {
+                    color: $orange;
+                    &:hover {
+                        color: $lime;
+                    }
+                }
+            }
+        }
+        li.menu-item.social {
+            padding: $grid-gutter-width/2 $grid-gutter-width/1.8 0 0;
+            a {
+                font-size: 1.1em;
+            }
+        }
+    }
+    .return {
+        width: 100%;
+        text-align: center;
+        margin: $line-height-computed 0;
+        a {
+            color: $text;
+            text-transform: uppercase;
+            @include transition(color 500ms ease-in-out);
+            &:before {
+                text-transform: none;
+                @include transition(transform 500ms ease-in-out);
+                display: block;
+                content: "\65";
+                font-family: Icons;
+            }
+            &:hover,
+            &:active {
+                text-decoration: none !important;
+                color: $lime;
+                &:before {
+                    @include translate(0, -5px);
+                }
+            }
+        }
+    }
+    .sep {
+        background: #202729;
+        background-image: none;
+        margin: $grid-gutter-width 0;
+    }
+    .copyright {
+        text-align: center;
+        a {
+            color: $text;
+            font-weight: 400;
+        }
+    }
+}
+article,
+.info {
+    ol,
+    ul {
+        margin-left: 40px;
+    }
+}
+.photo-credit {
+    font-size: $font-size-small*.8;
+    text-align: right;
+    padding: 10px;
+}
+h1.under,
+h3.under {
+    text-align: center;
+    font-size: $font-size-h1;
+    text-transform: uppercase;
+    margin-bottom: $font-size-h1/2;
+    &:after {
+        display: block;
+        width: 50%;
+        padding-left: 10%;
+        height: 10px;
+        background-color: $green;
+        content: "";
+        margin: 16px auto 0;
+        @include translate(-300%, 0);
+        @include transition(all 1.5s ease-in-out);
+    }
+    &.loop {
+        font-size: $font-size-h3;
+    }
+    &.in-view {
+        &:after {
+            width: 10%;
+            @include animation(headers 10s ease-in-out forwards);
+        }
+    }
+
+
+}
+
+
+
+section {
+    @for $i from 1 through length($color-loop) {
+        &:nth-of-type(#{$i}) h3.under:after {
+            background-color: nth($color-loop, $i);
+        }
+    }
+}
+main {
+    margin: 0;
+    padding: 0;
+}
+@include keyframes(headers) {
+    50% {
+        @include translate(0, 0);
+    }
+    100% {
+        @include translate(50%, 0);
+    }
+}

@@ -1,0 +1,298 @@
+
+$font-url: '/wp-content/themes/noco/dist/fonts/';
+
+@mixin nc-font($shortname: arial, $family: arial, $weight: normal, $style: normal){
+    @font-face{
+        font-family: $shortname;
+        src:url('#{$font-url}#{$family}-webfont.eot');
+        src:url('#{$font-url}#{$family}-webfont.eot?#iefix') format('embedded-opentype'),
+            url('#{$font-url}#{$family}-webfont.woff') format('woff'),
+            url('#{$font-url}#{$family}-webfont.ttf') format('truetype'),
+            url('#{$font-url}#{$family}-webfont.svg#svgversion') format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@include nc-font(NOCORaleway,raleway-medium,normal,normal);
+@include nc-font(NOCORaleway,raleway-mediumitalic,normal,italic);
+@include nc-font(NOCORaleway,raleway-medium,100,normal);
+@include nc-font(NOCORaleway,raleway-mediumitalic,100,italic);
+@include nc-font(NOCORaleway,raleway-medium,200,normal);
+@include nc-font(NOCORaleway,raleway-mediumitalic,200,italic);
+@include nc-font(NOCORaleway,raleway-medium,300,normal);
+@include nc-font(NOCORaleway,raleway-mediumitalic,300,italic);
+@include nc-font(NOCORaleway,raleway-medium,400,normal);
+@include nc-font(NOCORaleway,raleway-mediumitalic,400,italic);
+
+
+@include nc-font(NOCORaleway,raleway-bold,500,normal);
+@include nc-font(NOCORaleway,raleway-bolditalic,500,italic);
+@include nc-font(NOCORaleway,raleway-bold,600,normal);
+@include nc-font(NOCORaleway,raleway-bolditalic,600,italic);
+@include nc-font(NOCORaleway,raleway-bold,700,normal);
+@include nc-font(NOCORaleway,raleway-bolditalic,700,italic);
+@include nc-font(NOCORaleway,raleway-bold,bold,normal);
+@include nc-font(NOCORaleway,raleway-bolditalic,bold,italic);
+
+@include nc-font(NOCORaleway,raleway-extrabold,800,normal);
+@include nc-font(NOCORaleway,raleway-extrabold,800,italic);
+@include nc-font(NOCORaleway,raleway-extrabold,900,normal);
+@include nc-font(NOCORaleway,raleway-extrabold,900,italic);
+
+@include nc-font(AvantGarde,avant_0_0,normal,normal);
+@include nc-font(AvantGarde,avant_1_0,normal,italic);
+@include nc-font(AvantGarde,avant_2_0,bold,normal);
+@include nc-font(AvantGarde,avant_3_0,bold,italic);
+
+
+@include nc-font(Icons,noco-icons);
+
+
+[data-icon]:before {
+  font-family: Icons !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: Icons !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+.icon-airplane:before {
+  content: "\61";
+}
+.icon-arrow-down:before {
+  content: "\62";
+}
+.icon-university:before {
+  content: "\63";
+}
+.icon-flickr:before {
+  content: "\65";
+}
+.icon-house:before {
+  content: "\66";
+}
+.icon-sun:before {
+  content: "\67";
+}
+.icon-train:before {
+  content: "\69";
+}
+.icon-tree:before {
+  content: "\6a";
+}
+.icon-industry:before {
+  content: "\6b";
+}
+.icon-linkedin:before {
+  content: "\6c";
+}
+.icon-truck:before {
+  content: "\6d";
+}
+.icon-twitter:before {
+  content: "\6e";
+}
+.icon-logo:before {
+  content: "\6f";
+}
+.icon-arrow-left:before {
+  content: "\70";
+}
+.icon-arrow-right:before {
+  content: "\71";
+}
+.icon-logo-mark:before {
+  content: "\72";
+}
+.icon-logo-type:before {
+  content: "\73";
+}
+.icon-map:before {
+  content: "\76";
+}
+.icon-menu:before {
+  content: "\77";
+}
+.icon-arrow-up:before {
+  content: "\78";
+}
+.icon-bottle:before {
+  content: "\79";
+}
+.icon-people:before {
+  content: "\7a";
+}
+.icon-plus:before {
+  content: "\41";
+}
+.icon-checkmark:before {
+  content: "\42";
+}
+.icon-close:before {
+  content: "\43";
+}
+.icon-ship:before {
+  content: "\44";
+}
+.icon-flask:before {
+  content: "\45";
+}
+.icon-skyline:before {
+  content: "\46";
+}
+.icon-flask-outline:before {
+  content: "\64";
+}
+.icon-incentive-federal:before {
+  content: "\68";
+}
+.icon-incentive-local:before {
+  content: "\74";
+}
+.icon-incentive-state:before {
+  content: "\75";
+}
+*/
+
+
+.icon-airplane:before {
+  content: "\61";
+}
+.icon-arrow-down:before {
+  content: "\62";
+}
+.icon-university:before {
+  content: "\46";
+}
+.icon-flickr:before {
+  content: "\6b";
+}
+.icon-house:before {
+  content: "\6c";
+}
+.icon-sun:before {
+  content: "\41";
+}
+
+.icon-train:before {
+  content: "\42";
+}
+
+.icon-tree:before {
+  content: "\43";
+}
+.icon-industry:before {
+  content: "\7a";
+}
+
+.icon-linkedin:before {
+  content: "\77";
+}
+
+.icon-truck:before {
+  content: "\44";
+}
+.icon-twitter:before {
+  content: "\45";
+}
+.icon-logo-black:before {
+  content: "\76";
+}
+
+.icon-logo:before {
+  content: "\76";
+}
+
+.icon-arrow-left:before {
+  content: "\63";
+}
+.icon-arrow-right:before {
+  content: "\64";
+}
+.icon-logo-mark:before {
+  content: "\75";
+}
+.icon-logo-type:before {
+  content: "\74";
+}
+.icon-map:before {
+  content: "\73";
+}
+.icon-menu:before {
+  content: "\72";
+}
+.icon-arrow-top:before {
+  content: "\65";
+}
+.icon-arrow-up:before {
+  content: "\65";
+}
+.icon-bottle:before {
+  content: "\66";
+}.icon-bottle2:before {
+  content: "\66";
+}
+.icon-people:before {
+  content: "\71";
+}
+.icon-plus:before {
+  content: "\70";
+}
+.icon-checkmark:before {
+  content: "\67";
+}
+.icon-close:before {
+  content: "\68";
+}
+.icon-ship:before {
+  content: "\6f";
+}
+
+.icon-flask:before {
+  content: "\69";
+}
+.icon-skyline:before {
+  content: "\6e";
+}
+
+.icon-flask-outline:before {
+  content: "\6a";
+}
+
+
+.icon-incentive-federal:before {
+  content: "\6d";
+}
+
+.icon-incentive-local:before {
+  content: "\79";
+}
+
+.icon-incentive-state:before {
+  content: "\78";
+}
+
+
+.icon-facebook:before {
+  content: "\47";
+}

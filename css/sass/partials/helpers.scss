@@ -1,0 +1,13 @@
+.grade {
+    @include four-grade;
+    &.orange-yellow {
+        @include gradient-horizontal(#fb8d1f, $yellow, 0%, 100%);
+    }
+    &.yellow-lime {
+        @include gradient-horizontal($yellow, #4add78, 0%, 100%);
+    }
+    &.lime-green {
+        @include gradient-horizontal(#4add78, #2b9273, 0%, 100%);
+    }
+}
+ 

@@ -1,0 +1,1243 @@
+  $whynocogrey: #434e51;
+  $whynocodkgrey: #232b2d;
+  html {
+      overflow-x: hidden;
+  }
+  .page-template-__why-noco2 {
+      overflow-x: hidden;
+      h3.under {
+          &:after {
+              margin-top: 23px;
+          }
+          &.orange:after {
+              background-color: $orange;
+          }
+          &.lime:after {
+              background-color: $lime;
+          }
+      }
+      /* GENERAL ANIMATIONS*/
+      .animated {
+          @include transition(all 2s ease-in-out);
+          -webkit-backface-visibility: hidden;
+          .inLeft {
+              position: relative;
+              width: 100%;
+              @include translate(-150%, 0);
+              opacity: 0;
+          }
+          .inRightSide {
+              position: relative;
+              width: 100%;
+              @include translate(150%, 0);
+              opacity: 0;
+          }
+          &.fadeIn {
+              opacity: 0;
+              &.in-view {
+                  opacity: 1;
+              }
+          }
+      }
+      img.slides {
+          margin: 80px 40px;
+          @include transition(all 1.6s ease-in-out);
+          &.slideLeft {
+              @include translate(-1000%, 0);
+          }
+          &.slideUp {
+              @include translate(0, 500%);
+          }
+          &.slideRight {
+              @include translate(1000%, 0);
+          }
+      }
+      .in-view {
+          .half.bottles {
+              @include animation(bgs 100s infinite);
+          }
+          img.slides {
+              &.slideLeft {
+                  @include translate(0, 0);
+              }
+              &.slideUp {
+                  @include translate(0, 0);
+              }
+              &.slideRight {
+                  @include translate(0, 0);
+              }
+          }
+          &.noscroll .inLeft {
+              @include translate(0, 0);
+              opacity: 1;
+          }
+          &.noscroll .inRightSide {
+              opacity: 1;
+              @include translate(0, 0);
+          }
+      }
+      .drop-shadow {
+          text-shadow: 5px 5px 0 $whynocogrey;
+      }
+      /**/
+      /**/
+      /**/
+      /* BEGIN MY OWN STUFF */
+      /**/
+      /**/
+      /**/
+      .scrollContent .sk {
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          @for $i from 1 through length($color-loop-alt) {
+              &:nth-of-type(#{$i}) {
+                  //    background-color: nth($color-loop-alt, $i);
+                  p,
+                  li,
+                  span {
+                      color: nth($color-loop-alt-dark, $i);
+                  }
+              }
+          }
+          .countup {
+              opacity: 0;
+              &.counted {
+                  opacity: 1;
+              }
+          }
+          .sectiontitles {
+              width: 100%;
+              text-align: center;
+              margin-top: 10%;
+              color: #fff;
+              span {
+                  background-image:url(#{$path}/whynoco/circle.png);
+                  @include bgz(contain);
+                  color: #fff;
+                  font-size: $font-size-small;
+                  display: block;
+                  margin-bottom: 25px;
+                  padding: 15px;
+              }
+              @media (max-width: $screen-xs-max) {
+                  h3.under {
+                      font-size: $font-size-h3;
+                      margin: 0 $grid-gutter-width/2;
+                  }
+              }
+          }
+          #newbelgium {
+              opacity: 0;
+              position: fixed;
+              width: 100%;
+              height: 100%;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              .image {
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  position: relative;
+                  @include bgz();
+                  background-image:url(#{$path}/whynoco/newbelgium.jpg);
+              }
+          }
+          .wedge {
+              width: 100%;
+              /*            height: 63%;
+            position: absolute;*/
+              z-index: 5;
+              height: 500px;
+              @media (max-width: $screen-xs-max) {
+                  height: 300px;
+              }
+              @include bgz();
+              background-image: url(#{$path}/whynoco/culture.jpg);
+              .animated {
+                  width: 100%;
+                  text-align: center;
+                  padding-top: 10%;
+                  margin: 0;
+                  color: #fff;
+                  span {
+                      color: #fff;
+                      font-size: $font-size-small;
+                      display: block;
+                      margin-bottom: 40px;
+                  }
+              }
+              -webkit-clip-path: polygon(100% 0, 100% 84%, 50% 100%, 0 84%, 0 0);
+              clip-path: polygon(100% 0, 100% 84%, 50% 100%, 0 84%, 0 0);
+          }
+          &.abs {
+              .wedge {
+                  position: absolute;
+                  top: -1px;
+              }
+              .half {
+                  padding-top: 500px;
+                  @media (max-width: $screen-xs-max) {
+                      padding-top: 300px;
+                  }
+                  .inner {
+                      padding-bottom: 160px;
+                  }
+              }
+          }
+          .half {
+              background-color: #fff;
+              z-index: 4;
+              @include make-sm-column(6);
+              .inner {
+                  text-align: center;
+                  padding: 80px $grid-gutter-width;
+                  @media (max-width: $screen-sm-max) {
+                      padding: 60px $grid-gutter-width/2;
+                  }
+                  type {
+                      text-transform: uppercase;
+                      font-size: $font-size-h4;
+                      font-weight: bold;
+                  }
+                  .drop-shadow {
+                      font-size: $font-size-h1*2;
+                      @media (max-width: $screen-xs-max) {
+                          font-size: $font-size-h1;
+                      }
+                      display: block;
+                      color: $lime;
+                      font-weight: 800;
+                      span {
+                          color: $lime;
+                      }
+                  }
+              }
+              &.bottles {
+                  background: url(#{$path}/whynoco/bottle-tiles.jpg) top left repeat;
+                  -webkit-background-size: 62px 83px;
+                  background-size: 62px 83px;
+                  .inner .drop-shadow span {
+                      color: #fff;
+                  }
+              }
+          }
+          &#intro {
+              @include bgz(cover, center top);
+              background-image: url(#{$path}/whynoco/intro-bg.jpg);
+              @media (max-width: $screen-sm-max) {
+                  background-image: url(#{$path}/whynoco/intro-bg-mobile.jpg);
+              }
+              padding-bottom: 300px;
+              @media (max-width: $screen-xs-max) {
+                  padding-bottom: 140px;
+              }
+              &.in-view {
+                  @include animation(intro 10s forwards);
+              }
+              .introtext {
+                  h3 {
+                      text-align: center;
+                      padding: 25% 25% 10% 25%;
+                      color: #fff;
+                      font-size: $font-size-h1;
+                      @media (max-width: $screen-xs-max) {
+                          font-size: $font-size-h3;
+                          padding: 80px $grid-gutter-width;
+                      }
+                  }
+                  .noscroll {
+                      position: relative;
+                      .tagline {
+                          display: block;
+                          font-size: $font-size-h1;
+                          @media (max-width: $screen-xs-max) {
+                              font-size: $font-size-h3;
+                          }
+                          text-align: center;
+                          text-transform: uppercase;
+                          font-weight: 800;
+                          @for $i from 1 through length($color-loop-alt) {
+                              &:nth-of-type(#{$i}) {
+                                  color: nth($color-loop-alt, $i);
+                                  @include transition(all 500ms*$i ease-in-out);
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+          &#booming .wedge {
+              position: relative;
+              @include bgz();
+              background-image: url(#{$path}/whynoco/booming-bg2.jpg);
+              background-color: #fff;
+              .animated {
+                  width: 100%;
+                  text-align: center;
+                  color: #fff;
+                  span {
+                      color: #fff;
+                      font-size: $font-size-small;
+                      display: block;
+                      margin-bottom: 40px;
+                  }
+              }
+          }
+          &#fastest {
+              padding: 80px 0;
+              background-color: #fff;
+              text-align: center;
+              z-index: 500;
+              h4 {
+                  color: $green;
+                  margin: $grid-gutter-width 0;
+                  span {
+                      display: block;
+                      color: #000;
+                  }
+              }
+              .city {
+                  @include make-sm-column(4);
+                  @media (max-width: $screen-xs-max) {
+                      width: 100%;
+                  }
+                  display: block;
+                  margin: $grid-gutter-width/2 0;
+                  padding: $grid-gutter-width $grid-gutter-width/2;
+                  float: left;
+                  .inner {
+                      background: $green;
+                      border-bottom: 4px solid $green-dark;
+                      span,
+                      name {
+                          display: block;
+                      }
+                      span {
+                          font-size: $font-size-h1*2;
+                          @media (max-width: $screen-sm-max) {
+                              font-size: $font-size-h1;
+                          }
+                          color: #fff;
+                          font-weight: 800;
+                          text-shadow: 5px 5px 0 $whynocogrey;
+                          opacity: 0;
+                          &:before {
+                              content: "#";
+                              color: $whynocogrey;
+                              text-shadow: none;
+                              font-size: $font-size-h2;
+                              @media (max-width: $screen-sm-max) {
+                                  font-size: $font-size-h3;
+                              }
+                              margin-right: 10px;
+                              vertical-align: baseline;
+                          }
+                      }
+                      name {
+                          color: $whynocogrey;
+                          text-transform: uppercase;
+                          font-size: $font-size-h4;
+                          @media (max-width: $screen-sm-max) {
+                              font-size: $font-size-h5;
+                          }
+                          margin-bottom: 40px;
+                          font-weight: bold;
+                      }
+                  }
+              }
+              .ranking {
+                  @include make-sm-column(6);
+                  @include make-md-column(3);
+                  margin: $grid-gutter-width/2 0;
+                  .inner {
+                      padding: 40px 30px;
+                      background: $boxgrey;
+                      border-bottom: 4px solid $white-box-border;
+                      rank,
+                      city {
+                          display: block;
+                      }
+                      span {
+                          font-size: $font-size-h1*2;
+                          @media (max-width: $screen-sm-max) {
+                              font-size: $font-size-h1;
+                          }
+                          color: $green;
+                          font-weight: 800;
+                          text-shadow: 5px 5px 0 $whynocogrey;
+                          &:before {
+                              content: "#";
+                              text-shadow: none;
+                              font-size: $font-size-h2;
+                              @media (max-width: $screen-sm-max) {
+                                  font-size: $font-size-h3;
+                              }
+                              margin-right: 10px;
+                              vertical-align: baseline;
+                          }
+                          &.nohash {
+                              font-size: $font-size-h1;
+                              line-height: 230px;
+                              @media (max-width: $screen-sm-max) {
+                                  line-height: 1;
+                              }
+                              &:before {
+                                  content: "";
+                              }
+                          }
+                      }
+                      rank {
+                          color: $whynocogrey;
+                          text-transform: uppercase;
+                          font-size: $font-size-h5;
+                          margin-bottom: 15px;
+                          font-weight: bold;
+                          padding: 0 15px;
+                      }
+                      city {
+                          color: $green;
+                      }
+                      a.btn {
+                          color: #fff;
+                          margin: 15px 0;
+                          &:before {
+                              content: "";
+                          }
+                      }
+                  }
+              }
+          }
+          &#culture {
+              .newb {
+                  z-index: 5;
+                  .brew {
+                      padding: 40px;
+                      background-color: $whynocogrey;
+                      width: 100%;
+                  }
+                  color: #fff;
+                  width: 70%;
+                  position: relative;
+                  top: -62px;
+                  position: relative;
+                  text-align: center;
+                  text-transform: uppercase;
+                  font-weight: bold;
+                  font-size: $font-size-h4;
+                  left: 15%;
+                  margin-bottom: 300px;
+                  span {
+                      color: $lime;
+                  }
+                  div.title {
+                      background-color: $lime;
+                      border-bottom: 4px solid $lime-dark;
+                      color: $whynocogrey;
+                      display: inline-block;
+                      padding: 20px 40px;
+                      float: right;
+                      font-size: $font-size-h6;
+                  }
+              }
+              .fests {
+                  position: relative;
+                  padding: 80px;
+                  @media (max-width: $screen-xs-max) {
+                      padding: $grid-gutter-width;
+                  }
+                  background-color: $whynocodkgrey;
+                  text-align: center;
+                  z-index: 6;
+                  .countup {
+                      opacity: 0;
+                      &.counted {
+                          opacity: 1 !important;
+                      }
+                  }
+                  span {
+                      color: $lime;
+                      font-size: $font-size-h4;
+                      text-transform: uppercase;
+                      font-weight: 700;
+                      &.main {
+                          margin: 0 40px;
+                          @media (max-width: $screen-xs-max) {
+                              margin: 10px;
+                          }
+                          display: inline-block;
+                      }
+                      span {
+                          color: #fff;
+                      }
+                  }
+              }
+              @media (max-width: $screen-xs-max) {
+                  .bottles {
+                      padding-top: 100px;
+                  }
+              }
+              &.in-view {
+                  #newbelgium {
+                      opacity: 1;
+                  }
+              }
+          }
+          &#genius {
+              z-index: 100;
+              .wedge {
+                  background-image: url(#{$path}/whynoco/einstein.jpg);
+                  .animated {
+                      padding-top: 6%;
+                  }
+              }
+              .half {
+                  span {
+                      color: $orange;
+                      span {
+                          color: $orange;
+                      }
+                  }
+                  &.bottles {
+                      background-image: url(#{$path}/whynoco/flask-tiles.jpg);
+                      -webkit-background-size: 53px 101px;
+                      background-size: 53px 101px;
+                      left: 0;
+                      span {
+                          color: #fff;
+                      }
+                      @media (max-width: $screen-xs-max) {
+                          padding-top: 150px;
+                      }
+                  }
+              }
+          }
+          &#colleges {
+              background-color: $whynocodkgrey;
+              @include bgz(contain, top center);
+              .college {
+                  background-color: $whynocodkgrey;
+                  @include make-sm-column(6);
+                  padding: 0;
+                  .inner {
+                      padding: 80px $grid-gutter-width*5;
+                      @media (max-width: $screen-sm-max) {
+                          padding: 80px $grid-gutter-width;
+                      }
+                      text-align: center;
+                      color: #fff;
+                      h2 {
+                          font-weight: 700;
+                          font-size: $font-size-h4;
+                          color: $orange;
+                          margin-bottom: 30px;
+                          span {
+                              color: #fff;
+                              display: block;
+                          }
+                      }
+                      p {
+                          color: #fff;
+                      }
+                  }
+              }
+          }
+          &#tech {
+              background-color: $whynocodkgrey;
+              @include bgz(cover, top center);
+              padding-bottom: 10%;
+              background-attachment: fixed;
+              overflow: hidden;
+              background-image: url(#{$path}/whynoco/tech.jpg);
+              h3 {
+                  color: #fff;
+              }
+              .header {
+                  text-align: center;
+              }
+          }
+          &#energy {
+              background-color: $whynocodkgrey;
+              overflow: hidden;
+              .halfbox {
+                  @include make-sm-column(6);
+                  padding: 0;
+                  float: left;
+                  text-align: center;
+                  &.header {
+                      @include bgz(cover, center bottom);
+                      background-image: url(#{$path}/whynoco/energy-bg.jpg);
+                      @media (max-width: $screen-xs-max) {
+                          width: 100%;
+                          h3 {
+                              margin: $grid-gutter-width 0;
+                          }
+                      }
+                      text-shadow: 5px 5px 0 $whynocodkgrey;
+                      span {
+                          text-shadow: none;
+                      }
+                      h3 {
+                          @media (min-width: $screen-sm-min) {
+                              @include vertical-align();
+                          }
+                          @media (max-width: $screen-sm-max) {
+                              font-size: $font-size-h3;
+                          }
+                      }
+                  }
+                  .sectiontitles {
+                      margin-top: 0;
+                      padding-bottom: 15px;
+                  }
+                  .inner {
+                      padding: 120px 80px;
+                      @media (max-width: $screen-sm-max) {
+                          padding: 80px 40px;
+                      }
+                  }
+                  &.green {
+                      background-color: $green;
+                      color: $whynocogrey;
+                      div:not(.inner) {
+                          font-size: $font-size-h4;
+                          font-weight: 700;
+                          padding: 40px 40px 0 40px;
+                          @media (max-width: $screen-sm-max) {
+                              padding: 20px 20px 0 20px;
+                          }
+                          text-transform: uppercase;
+                          &:before {
+                              display: block;
+                              width: 20%;
+                              @media (max-width: $screen-sm-max) {
+                                  width: 40%;
+                              }
+                              padding-left: 10%;
+                              height: 6px;
+                              background-color: $green-med;
+                              content: "";
+                              margin: 0 auto 40px;
+                          }
+                          &:nth-of-type(1) {
+                              &:before {
+                                  display: none;
+                              }
+                          }
+                      }
+                      span {
+                          color: #fff;
+                          &.cite {
+                              display: block;
+                              font-size: $font-size-h6;
+                          }
+                      }
+                  }
+              }
+          }
+          &#bioscience {
+              background-color: $whynocodkgrey;
+              overflow: hidden;
+              .halfbox {
+                  @include make-sm-column(6);
+                  padding: 0;
+                  float: left;
+                  text-align: center;
+                  &.header {
+                      @include bgz(cover, center bottom);
+                      background-image: url(#{$path}/whynoco/bioscience.jpg);
+                      text-shadow: 5px 5px 0 $whynocodkgrey;
+                      @media (max-width: $screen-xs-max) {
+                          width: 100%;
+                          h3 {
+                              padding: $grid-gutter-width 0;
+                          }
+                      }
+                      span {
+                          text-shadow: none;
+                      }
+                  }
+                  .sectiontitles {
+                      margin-top: 0;
+                      padding-bottom: 15px;
+                      h3 {
+                          @media (min-width: $screen-sm-min) {
+                              @include vertical-align();
+                          }
+                          @media (max-width: $screen-sm-max) {
+                              font-size: $font-size-h3;
+                          }
+                      }
+                  }
+                  .inner {
+                      padding: 120px 80px;
+                      @media (max-width: $screen-sm-max) {
+                          padding: 80px 40px;
+                      }
+                  }
+                  &.green {
+                      background-color: $orange;
+                      color: $whynocogrey;
+                      div:not(.inner) {
+                          font-size: $font-size-h4;
+                          font-weight: 700;
+                          padding: 40px 40px 0 40px;
+                          @media (max-width: $screen-sm-max) {
+                              padding: 20px 20px 0 20px;
+                          }
+                          text-transform: uppercase;
+                          &:before {
+                              display: block;
+                              width: 20%;
+                              padding-left: 10%;
+                              height: 6px;
+                              background-color: $orange-med;
+                              content: "";
+                              margin: 0 auto 40px;
+                          }
+                          &:nth-of-type(1) {
+                              &:before {
+                                  display: none;
+                              }
+                          }
+                      }
+                      span {
+                          color: #fff;
+                          &.cite {
+                              display: block;
+                              font-size: $font-size-h6;
+                          }
+                      }
+                      img.slides {
+                          margin: 0 10px;
+                      }
+                  }
+              }
+          }
+          &#nocoplace {
+              z-index: 500;
+              .wedge {
+                  background-image: url(#{$path}/whynoco/nocoplace.jpg);
+                  i {
+                      text-transform: none;
+                  }
+                  .animated {
+                      padding-top: 6%;
+                  }
+              }
+              .half {
+                  left: 0%;
+                  width: 100%;
+                  span {
+                      color: $orange;
+                      span {
+                          color: $orange;
+                      }
+                  }
+                  &.bottles {
+                      background-image: url(#{$path}/whynoco/green-dots.png);
+                      @include animation(bgs 100s infinite);
+                      -webkit-background-size: 40px 53px;
+                      background-size: 40px 53px;
+                      left: 0;
+                      .inner {
+                          bottom: 13%;
+                      }
+                      span {
+                          color: #fff;
+                          font-size: $font-size-h2;
+                          line-height: 1;
+                          @media (max-width: $screen-xs-max) {
+                              font-size: $font-size-h3;
+                          }
+                          text-transform: uppercase;
+                          text-shadow: 4px 4px 0 $whynocogrey;
+                      }
+                      type {
+                          display: block;
+                          margin: 15px;
+                      }
+                      .btn {
+                          background-color: $lime-med;
+                          color: #fff;
+                          text-transform: none;
+                          border-bottom-color: $lime-dark;
+                          z-index: 500;
+                      }
+                  }
+              }
+          }
+          &#nocostats {
+              background-color: #fff;
+              padding: $grid-gutter-width/2 0;
+              height: 200%;
+              z-index: 500;
+              .wrap {
+                  .item {
+                      @include make-sm-column(6);
+                      @include make-md-column(3);
+                      @media (max-width: $screen-xs-max) {
+                          width: 100%;
+                      }
+                      @media (max-width: $screen-sm-max) {
+                          &.last {
+                              width: 100%;
+                          }
+                      }
+                      float: left;
+                      position: relative;
+                      backface-visibility: hidden;
+                      @include perspective(3000px);
+                      @media (max-width: $screen-xs-max) {
+                          margin-bottom: $grid-gutter-width/2;
+                      }
+                      &,
+                      .front,
+                      .back {
+                          height: 100%;
+                          @media (max-width: $screen-xs-max) {
+                              height: 300px;
+                          }
+                      }
+                      .back,
+                      .front {
+                          width: 100%;
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          @include backface-visibility(hidden);
+                          @include transition(1.2s);
+                      }
+                      .back {
+                          .inner {
+                              background-color: $whynocogrey;
+                              margin: $grid-gutter-width/2;
+                              min-height: 100px;
+                              border-bottom: 4px solid $whynocodkgrey;
+                              text-align: center;
+                              padding: 30px;
+                              @media (max-width: $screen-xs-max) {
+                                  height: 300px;
+                              }
+                              .wrap {
+                                  @include vertical-align();
+                                  city,
+                                  ranking,
+                                  type {
+                                      display: block;
+                                      text-transform: uppercase;
+                                      margin: 10px;
+                                      color: #fff;
+                                  }
+                                  i {
+                                      font-size: 5em;
+                                      line-height: 1px;
+                                      color: $whynocodkgrey;
+                                      &:before {
+                                          line-height: 64px;
+                                          vertical-align: bottom;
+                                      }
+                                  }
+                                  ranking {
+                                      font-size: $font-size-h2;
+                                      &.small {
+                                          font-size: 45px;
+                                      }
+                                      line-height: 1;
+                                      @media (max-width: $screen-xs-max) {
+                                          font-size: $font-size-h4;
+                                      }
+                                      font-weight: 700;
+                                      color: $lime;
+                                      span {
+                                          text-shadow: none;
+                                          color: $whynocogrey;
+                                          font-size: $font-size-h3;
+                                      }
+                                  }
+                                  type {
+                                      font-weight: 700;
+                                  }
+                                  .btn {
+                                      background-color: $lime-med;
+                                      color: #fff;
+                                      border-bottom-color: $lime-dark;
+                                      text-transform: none;
+                                      span {
+                                          color: #fff;
+                                      }
+                                      @media (max-width: $screen-sm-max) {
+                                          span {
+                                              display: none;
+                                          }
+                                      }
+                                      @media (max-width: $screen-xs-max) {
+                                          font-size: $font-size-h6;
+                                      }
+                                  }
+                              }
+                          }
+                          z-index: 1;
+                          @include rotateY(180deg);
+                      }
+                      .front {
+                          background-color: #fff;
+                          z-index: 2;
+                          @include rotateY(0deg);
+                      }
+                      &.large {
+                          @include make-sm-column(6);
+                          .inner {
+                              background-color: $lime;
+                              border-bottom-color: $lime-dark;
+                              .wrap {
+                                  city,
+                                  type,
+                                  i {
+                                      color: $whynocogrey;
+                                  }
+                                  ranking {
+                                      text-shadow: 4px 4px 0 $whynocogrey;
+                                      @media (max-width: $screen-sm-max) {
+                                          text-shadow: 3px 3px 0 $whynocogrey;
+                                      }
+                                      color: #fff;
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+              &.in-view .wrap .item {
+                  @for $i from 1 through 9 {
+                      &:nth-of-type(#{$i}) {
+                          .front {
+                              @include animation(flip-#{$i} 6s ease-in-out forwards);
+                          }
+                          .back {
+                              @include animation(flip2-#{$i} 6s ease-in-out forwards);
+                          }
+                      }
+                  }
+              }
+          }
+          &#extra {
+              z-index: 102;
+              .wedge {
+                  background-image: url(#{$path}/whynoco/extra-bg.jpg);
+                  background-position: center center;
+                  h3 i {
+                      display: none;
+                      @media (max-width: $screen-xs-max) {
+                          display: inline-block;
+                      }
+                  }
+                  .animated {
+                      padding-top: 6%;
+                  }
+              }
+              .half .inner {
+                  cite {
+                      display: block;
+                      color: $green;
+                      font-style: normal;
+                      text-transform: uppercase;
+                  }
+                  .drop-shadow {
+                      color: $green;
+                      line-height: 1;
+                      font-size: $font-size-h1;
+                      @media (max-width: $screen-sm-max) {
+                          font-size: $font-size-h2;
+                          text-shadow: 3px 3px 0 $whynocogrey;
+                      }
+                      @media (max-width: $screen-xs-max) {
+                          font-size: $font-size-h3;
+                      }
+                      text-transform: uppercase;
+                  }
+              }
+              .newb {
+                  z-index: 5;
+                  top: -62px;
+                  position: relative;
+                  .brew {
+                      padding: 40px;
+                      background-color: $whynocogrey;
+                      width: 100%;
+                  }
+                  color: #fff;
+                  width: 70%;
+                  left: 15%;
+                  text-align: center;
+                  text-transform: uppercase;
+                  font-weight: bold;
+                  font-size: $font-size-h4;
+                  margin-bottom: 300px;
+                  span {
+                      color: $green;
+                  }
+                  div.title {
+                      background-color: $green;
+                      border-bottom: 4px solid $green-dark;
+                      color: $whynocogrey;
+                      display: inline-block;
+                      padding: 20px 40px;
+                      float: right;
+                      font-size: $font-size-h6;
+                  }
+              }
+              .fests {
+                  position: relative;
+                  padding: 80px;
+                  @media (max-width: $screen-xs-max) {
+                      padding: $grid-gutter-width/2;
+                  }
+                  background-color: $whynocodkgrey;
+                  text-align: center;
+                  z-index: 6;
+                  background-color: $whynocodkgrey;
+                  text-align: center;
+                  .countup {
+                      opacity: 0;
+                      &.counted {
+                          opacity: 1 !important;
+                      }
+                  }
+                  span {
+                      color: $green;
+                      font-size: $font-size-h4;
+                      text-transform: uppercase;
+                      font-weight: 700;
+                      &.main {
+                          margin: 0 40px;
+                          @media (max-width: $screen-xs-max) {
+                              margin: 0 20px;
+                          }
+                          display: inline-block;
+                      }
+                      span {
+                          color: #fff;
+                      }
+                  }
+                  .btn {
+                      color: #fff;
+                      text-transform: none;
+                      @media (max-width: $screen-xs-max) {
+                          font-size: $font-size-h6;
+                      }
+                  }
+              }
+              .bottles {
+                  background-color: $green;
+                  @include animation(bgs 100s infinite);
+                  background-image: url(#{$path}/whynoco/trees-tile.png);
+                  @media (max-width: $screen-xs-max) {
+                      padding-top: 150px;
+                  }
+                  .inner {
+                      cite {
+                          color: #fff;
+                          span a {
+                              display: block;
+                              color: $whynocodkgrey;
+                              text-transform: none;
+                          }
+                      }
+                      .drop-shadow {
+                          color: #fff;
+                      }
+                      .drop-shadow span {
+                          font-size: 120px;
+                      }
+                  }
+              }
+              #cache {
+                  opacity: 0;
+                  position: fixed;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 1;
+                  top: 0;
+                  left: 0;
+                  .image {
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                      position: relative;
+                      @include bgz();
+                      background-image:url(#{$path}/whynoco/cache.jpg);
+                  }
+              }
+              &.in-view {
+                  #cache {
+                      opacity: 1;
+                  }
+              }
+          }
+          &#manufacturing {
+              background-color: $whynocodkgrey;
+              @include bgz(cover, top center);
+              z-index: 200;
+              overflow: hidden;
+              padding-bottom: 10%;
+              background-image: url(#{$path}/whynoco/manufacturing-bg.jpg);
+              background-attachment: fixed;
+              h3 {
+                  color: #fff;
+              }
+              .header {
+                  text-align: center;
+              }
+          }
+          &#feed {
+              background-color: $whynocodkgrey;
+              overflow: hidden;
+              z-index: 202;
+              .halfbox {
+                  @include make-sm-column(6);
+                  padding: 0;
+                  height: 100%;
+                  float: left;
+                  text-align: center;
+                  @media (max-width: $screen-xs-max) {
+                      width: 100%;
+                  }
+                  &.header {
+                      @include bgz(cover, center bottom);
+                      background-image: url(#{$path}/whynoco/feed-bg.jpg);
+                      text-shadow: 5px 5px 0 $whynocodkgrey;
+                      span {
+                          text-shadow: none;
+                      }
+                  }
+                  .sectiontitles {
+                      h3 {
+                          @media (min-width: $screen-sm-min) {
+                              @include vertical-align();
+                          }
+                          margin-bottom: 0;
+                          @media (max-width: $screen-sm-max) {
+                              font-size: $font-size-h3;
+                          }
+                          @media (max-width: $screen-xs-max) {
+                              padding: $grid-gutter-width 0;
+                          }
+                      }
+                      margin-top: 0;
+                      padding-bottom: 15px;
+                  }
+                  .inner {
+                      padding: 120px 80px;
+                      @media (max-width: $screen-sm-max) {
+                          padding: 60px 40px;
+                      }
+                  }
+                  &.green {
+                      background-color: $orange;
+                      color: $whynocogrey;
+                      div:not(.inner) {
+                          font-size: $font-size-h4;
+                          font-weight: 700;
+                          padding: 40px 40px 0 40px;
+                          @media (max-width: $screen-sm-max) {
+                              padding: 20px 20px 0 20px;
+                          }
+                          text-transform: uppercase;
+                          cite {
+                              display: block;
+                              color: #fff;
+                              font-size: $font-size-h6;
+                              font-style: normal;
+                          }
+                          &:before {
+                              display: block;
+                              width: 20%;
+                              padding-left: 10%;
+                              height: 6px;
+                              background-color: $orange-med;
+                              content: "";
+                              margin: 0 auto 40px;
+                          }
+                          &:nth-of-type(1) {
+                              &:before {
+                                  display: none;
+                              }
+                          }
+                      }
+                      span {
+                          color: #fff;
+                          &.cite {
+                              display: block;
+                              font-size: $font-size-h6;
+                          }
+                      }
+                      img.animated {
+                          margin: 0 10px;
+                      }
+                  }
+              }
+          }
+          &#connect {
+              z-index: 203;
+              section {
+                  .inner {
+                      padding: 120px 0;
+                  }
+              }
+          }
+      }
+      #foot {
+          width: 100%;
+          z-index: 205;
+          height: 100%;
+          background-color: #232b2b;
+          position: relative;
+      }
+      a {
+          z-index: 500 !important;
+          position: relative;
+      }
+  }
+  /* Animations */
+  
+  @include keyframes(intro) {
+      0% {
+          background-position: top center;
+      }
+      100% {
+          background-position: bottom center;
+      }
+  }
+  @include keyframes(bgs) {
+      0% {
+          background-position: 0 0;
+      }
+      50% {
+          background-position: -200% -100%;
+      }
+      100% {
+          background-position: 0 -200%;
+      }
+  }
+  @for $i from 1 through 9 {
+      @include keyframes(flip-#{$i}) {
+          #{$i*10 - 10 }% {
+              @include rotateY(0deg);
+          }
+          #{$i*10}%,
+          100% {
+              @include rotateY(-180deg);
+          }
+      }
+      @include keyframes(flip2-#{$i}) {
+          #{$i*10 - 10}% {
+              @include rotateY(180deg);
+          }
+          #{$i*10}%,
+          100% {
+              @include rotateY(0deg);
+          }
+      }
+  }

@@ -1,0 +1,221 @@
+/* 1200px and up - large screens only */
+
+@media (min-width: $screen-lg-min) {}
+
+/* 1199px max - tablet landscape and smaller screens */
+
+@media (max-width: $screen-md-max) {}
+
+/* 991px max  - tablet portrait */
+
+@media (max-width: $screen-sm-max) {
+    .modal.right .modal-dialog {
+        width: 100%;
+    }
+    body.home section.why-noco .map h3.under {
+        font-size: $font-size-h2;
+    }
+    body.home section.key-industries h3.under.intro {
+        font-size: $font-size-h3;
+    }
+    body.home section.key-industries .blur-out span {
+        font-size: $font-size-small;
+    }
+    section.about-ncea.get-in-touch .item .inner .info h2,
+    section.connected.get-in-touch .item .inner .info h2 {
+        font-size: $font-size-h4;
+    }
+    section.about-ncea.get-in-touch .item .inner .info a,
+    section.connected.get-in-touch .item .inner .info a {
+        //font-size: 12px;
+    }
+    section.info-slider .nav-tabs li a span {
+        display: none;
+    }
+    section.demographics .item {
+        text-align: center;
+        margin-bottom: $grid-gutter-width;
+        .inner div stat {
+            float: none;
+            display: block;
+            font-weight: 700;
+        }
+    }
+    body.page-template-__investors section.info-slider .nav-tabs li a {
+        font-size: 14px;
+    }
+}
+
+/* 767px max - mobile small */
+
+@media (max-width: $screen-xs-max) {
+    body,
+    html {
+        overflow-x: hidden;
+    }
+    header .logo {
+        width: 40%;
+        margin: 5%;
+    }
+    .menu-icon {
+        width: 40%;
+        margin: 5%;
+        svg {
+            width: 50%;
+            height: 50%;
+            float: right;
+        }
+    }
+    #navModal {
+        .modal-body {
+            padding: 60px 30px 0;
+        }
+        nav li:not(.social) a {
+            font-size: $font-size-base;
+        }
+    }
+    h1,
+    .h1 {
+        font-size: $font-size-h1*.8;
+    }
+    h2,
+    .h2 {
+        font-size: $font-size-h2*.8;
+    }
+    h3,
+    .h3 {
+        font-size: $font-size-h3*.8;
+    }
+    h4,
+    .h4 {
+        font-size: $font-size-h4*.8;
+    }
+    .single .marquee h1,
+    .error404 .marquee h1,
+    .page .marquee h1,
+    .archive .marquee h1 {
+        font-size: $font-size-h3;
+    }
+    h1.under,
+    h3.under {
+        font-size: $font-size-h2*.8;
+    }
+    .carousel-indicators {
+        bottom: 18px;
+    }
+    body.home section.marquee .inner h1 span,
+    body.home section.marquee .inner h2 {
+        font-size: $font-size-h5;
+    }
+    .single .marquee,
+    .error404 .marquee,
+    .page .marquee,
+    .archive .marquee {
+        padding: 150px 0;
+    }
+    body.home section.why-noco {
+        .map {
+            img {
+                position: relative;
+                width: 100%;
+                height: auto;
+                left: 0;
+                top: 0;
+            }
+            h3.under {
+                font-size: $font-size-h3;
+            }
+        }
+        .reasons {
+            .reason {
+                position: relative;
+                .count {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 4;
+                }
+                .inner {
+                    z-index: 5;
+                    width: 100%;
+                    margin-top: 10px;
+                    .title {
+                        font-size: $font-size-h4;
+                    }
+                }
+            }
+        }
+    }
+    body.home section.ctas .cta {
+        margin-bottom: $grid-gutter-width/2;
+    }
+    .single section,
+    .error404 section,
+    .page section,
+    .archive section {
+        padding: 40px 0;
+    }
+    footer {
+        .logo {
+            margin-bottom: $grid-gutter-width;
+        }
+        .return a {
+            display: block;
+        }
+    }
+    section.about-ncea .logo,
+    section.connected .logo {
+        width: 50%;
+        margin-left: 25%;
+    }
+    .flip {
+        width: 100%;
+    }
+    section.success-stories {
+        text-align: center;
+        .image {
+            margin-bottom: $grid-gutter-width;
+        }
+    }
+    section.connected,
+    section.about-ncea {
+        &.get-in-touch .item .inner {
+            .image {
+                width: 100%;
+                margin-bottom: $grid-gutter-width/2;
+            }
+            .info {
+                padding: $grid-gutter-width $grid-gutter-width/2;
+            }
+        }
+    }
+    section.marquee {
+        &.community-map {
+            display: none;
+        }
+        &.community-mobile {
+            background-image: url(#{$path}/community-mobile-bg.jpg);
+        }
+    }
+    .single-communities .intro .map {
+        height: 300px;
+    }
+    section.demographics h3 {
+        span {
+            display: inline-block;
+        }
+        font-size: $font-size-h3;
+    }
+    body.page-template-__investors section.info-slider .tab-content .tab-pane .item .logo,
+    body.page-template-__board .item .logo {
+        display: block;
+        padding: 20px;
+        margin-bottom: $grid-gutter-width;
+    }
+    .single .marquee p.intro,
+    .error404 .marquee p.intro,
+    .page .marquee p.intro,
+    .archive .marquee p.intro {
+        padding: 0 10%;
+    }
+}

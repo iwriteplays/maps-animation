@@ -1,0 +1,244 @@
+body.home {
+    section,
+    .sep,
+    footer {
+        position: relative;
+        z-index: 5;
+    }
+    @media (min-width: $screen-sm-min) {
+        .sep.dropshadow {
+            box-shadow: 16px 15px 11px 31px #fff;
+            z-index: 4;
+        }
+    }
+    section.marquee {
+        .inner {
+            @include make-sm-column(6);
+            @include make-sm-column-offset(3);
+            text-align: center;
+            z-index: 10;
+            h1 {
+                span {
+                    font-size: $font-size-h4;
+                    font-weight: 100;
+                    color: $lime;
+                    display: block;
+                    line-height: 2;
+                }
+            }
+            h2 {
+                color: $lime;
+                font-weight: 500;
+                font-size: 32px;
+            }
+            p {
+                color: #fff;
+            }
+        }
+        z-index: 5;
+    }
+    section.key-industries {
+        background-color: #434e50;
+        h3.under.intro {
+            @include make-sm-column(6);
+            padding-top: $grid-gutter-width*2;
+            padding-left: $grid-gutter-width*2;
+            text-align: left;
+            color: #fff;
+            br {
+                display: none;
+            }
+            @media (min-width: $screen-sm-min) {
+                br {
+                    display: block;
+                }
+            }
+        }
+        .blur-out {
+            @include make-sm-column(3);
+            height: 300px;
+            display: block;
+            text-align: center;
+            @include bgz();
+            &:before {
+                @include transition(all 300ms ease-in-out);
+                content: "";
+                width: 100%;
+                height: 100%;
+                z-index: 3;
+                background-color: fade-out(#000, .4);
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            &:after {
+                @include transition(all 300ms ease-in-out);
+                width: 100%;
+                z-index: 3;
+                position: absolute;
+                height: 100%;
+                content: "\63";
+                font-family: Icons;
+                font-size: 2.5em;
+                color: transparent;
+                line-height: 0;
+                top: 50%;
+                left: 0;
+            }
+            span {
+                display: block;
+                z-index: 4;
+                position: relative;
+                color: #fff;
+                font-size: $font-size-h4;
+                text-transform: uppercase;
+                @include vertical-align();
+                @include transition(all 300ms ease-in-out);
+                transform-origin: 50% 500%;
+            }
+            &.more {
+                &:before {
+                    background-color: fade-out($lime, .2);
+                }
+                &:after {
+                    color: #fff;
+                }
+            }
+            &:hover {
+                text-decoration: none;
+                &:before {
+                    background-color: fade-out($orange, .2);
+                }
+                &:after {
+                    color: #fff;
+                }
+                span {
+                    color: transparent;
+                    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+                    @include scale(1.1);
+                }
+            }
+        }
+        o.wrap {
+            &:nth-of-type(3) .blur-out {
+                @include make-sm-column-offset(3);
+            }
+            @for $i from 1 through length($color-loop) {
+                &:nth-of-type(#{$i}) {
+                    .tooltip-inner {
+                        background-color: nth($color-loop, $i);
+                        color: nth($color-loop-dark, $i);
+                    }
+                    .tooltip-arrow {
+                        border-top-color: nth($color-loop, $i);
+                    }
+                    .blur-out:hover {
+                        &:before {
+                            background-color: fade-out(nth($color-loop, $i), .2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section.connected {
+        position: relative;
+        * {
+            z-index: 2;
+            position: relative;
+        }
+        &:before {
+            background-color: rgba(0, 0, 0, .5);
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: " ";
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+    section.why-noco {
+        z-index: 2;
+        .map {
+            @include make-sm-column(6);
+            h3.under {
+                color: $orange;
+                text-align: left;
+                text-shadow: 0 -10px 10px rgba(255, 255, 255, 1), 0 10px 10px rgba(255, 255, 255, 1), -10px 0px 10px rgba(255, 255, 255, 1), 10px 0 10px rgba(255, 255, 255, 1);
+                z-index: 4;
+                position: relative;
+                &:after {
+                    background-color: fade-out($orange, .8);
+                }
+            }
+            img {
+                position: fixed;
+                width: 56%;
+                left: 0%;
+                top: 10%;
+                z-index: 1;
+                @include transition(all 3s ease-in-out);
+            }
+        }
+        .in-view .map img {
+            top: 25%
+        }
+        .reasons {
+            @include make-sm-column(6);
+            position: relative;
+            z-index: 4;
+            .count {
+                @include make-xs-column(1.5);
+                font-size: $font-size-h1;
+                font-weight: bold;
+                color: $white-box-border;
+                margin-top: 0;
+                line-height: 1;
+                @include translate(0, 60px);
+                text-shadow: 0 -10px 10px rgba(255, 255, 255, 1), 0 10px 10px rgba(255, 255, 255, 1), -10px 0px 10px rgba(255, 255, 255, 1), 10px 0 10px rgba(255, 255, 255, 1);
+                @include transition(all 1500ms ease-in-out);
+                &.in-view {
+                    @include translate(0, 10px);
+                }
+            }
+            .inner {
+                @include make-xs-column(10.5);
+                .title {
+                    font-size: $font-size-h3;
+                    text-transform: uppercase;
+                    margin-top: $line-height-computed*2;
+                    font-weight: bold;
+                    color: #000;
+                    line-height: 1;
+                }
+                .reason {
+                    margin-top: $line-height-computed/2;
+                }
+            }
+        }
+    }
+    section.ctas {
+        background-color: #fff;
+        box-shadow: 16px 15px 11px 31px #fff;
+        z-index: 5;
+        .cta {
+            @include make-sm-column(4);
+            .inner {
+                padding: $grid-gutter-width*2 $grid-gutter-width;
+                background: $boxgrey;
+                text-align: center;
+                border-bottom: 4px solid $white-box-border;
+                .cta-icon {
+                    height: 100px;
+                    @include bgz('contain');
+                    margin-bottom: $grid-gutter-width;
+                }
+                .title {
+                    margin-bottom: $line-height-computed;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,153 @@
+.modal.right {
+    .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: 40%;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
+    .modal-content {
+        height: 100%;
+        overflow-y: auto;
+    }
+    .modal-body {
+        padding: 15px 15px 80px;
+    }
+    &.fade .modal-dialog {
+        z-index: 1000;
+        right: -25%;
+        -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+        transition: opacity 0.3s linear, right 0.3s ease-out;
+    }
+    &.fade.in .modal-dialog {
+        right: 0;
+    }
+    &#navModal {
+        .modal-dialog .modal-content {
+            background: #232b2d;
+            border-radius: 0;
+        }
+    }
+}
+#navModal {
+    .modal-body {
+        padding: 52px $grid-gutter-width*2 0;
+        .btn {
+            @extend .btn-lg;
+            font-size: $font-size-small;
+        }
+    }
+    nav {
+        margin-top: $line-height-computed*1.2;
+        .panel,
+        .panel-collapse {
+            background: transparent;
+        }
+        span.plus {
+            line-height: $line-height-computed;
+            vertical-align: top;
+            display: inline-block;
+            svg {
+                width: 10px;
+                height: 10px;
+                cursor: pointer;
+                -webkit-transform: translate3d(0, 0, 0);
+                -moz-transform: translate3d(0, 0, 0);
+                -o-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                @include transition( all 200ms ease-in-out);
+            }
+            path {
+                fill: none;
+                @include transition( all 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25));
+                stroke-width: 6px;
+                stroke-linecap: square;
+                stroke: #b1ea28;
+                stroke-dashoffset: 0px;
+                transform-origin: 50% 50%;
+                &.vert {
+                    transform: rotate(-90deg);
+                }
+            }
+            &:hover {
+                svg {
+                    width: 13px;
+                    height: 13px;
+                }
+                path {
+                    stroke: $orange;
+                }
+            }
+        }
+        span.plus.collapsed svg path.vert {
+            @include rotate(0deg);
+        }
+        li:not(.social) {
+            list-style: none;
+            padding: 7px 0;
+            a {
+                @include transition(all 200ms ease-in-out);
+                text-transform: uppercase;
+                font-size: 21px;
+                color: #b1ea28;
+                font-weight: 500;
+                display: inline-block;
+                padding-right: 10px;
+                &:hover {
+                    @include translate(-10px, 0);
+                    text-decoration: none;
+                    color: $orange;
+                    font-weight: 500;
+                }
+            }
+            ul {
+                margin-left: 40px;
+                margin-top: 7px;
+                li {
+                    padding: 5px 0;
+                    a {
+                        color: #b8c9cc;
+                        font-size: 18px;
+                        font-weight: 400;
+                        &:hover {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+            &.menu-item-118 a {
+                color: $orange;
+                &:hover {
+                    color: $lime;
+                }
+            }
+        }
+    }
+}
+li.menu-item.social {
+    list-style: none;
+    display: inline-block;
+    padding: $grid-gutter-width $grid-gutter-width/1.2 0 0;
+    text-align: left;
+    a {
+        color: $gray-one;
+        display: block;
+        font-size: 2.2em;
+        @include transition(all 200ms ease-in-out);
+        &:hover {
+            text-decoration: none;
+            color: $orange;
+            @include translate(0px, -5px);
+        }
+        &:visited,
+        &:active {
+            text-decoration: none;
+        }
+    }
+}

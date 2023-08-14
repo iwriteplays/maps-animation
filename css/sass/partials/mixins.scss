@@ -1,0 +1,119 @@
+@mixin four-grade($start-color: #fb8d1f, $mid-color-a: $yellow, $color-stop-a: 33.3333%, $mid-color-b: #4add78, $color-stop-b: 66.66666%, $end-color: #2b9273) {
+    background-image: -webkit-linear-gradient(left, $start-color, $mid-color-a $color-stop-a, $mid-color-b $color-stop-b, $end-color);
+    background-image: -o-linear-gradient(left, $start-color, $mid-color-a $color-stop-a, $mid-color-b $color-stop-b, $end-color);
+    background-image: linear-gradient(to right, $start-color, $mid-color-a $color-stop-a, $mid-color-b $color-stop-b, $end-color);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
+}
+@mixin bgz($size:cover, $pos:center center, $rep: no-repeat) {
+    -webkit-background-size: $size;
+    background-size: $size;
+    background-position: $pos;
+    background-repeat: $rep;
+}
+@mixin vertical-align($perc: 50%) {
+    html & {
+        position: relative;
+        top: $perc;
+        -webkit-transform: translateY(-$perc);
+        -ms-transform: translateY(-$perc);
+        transform: translateY(-$perc);
+    }
+}
+@mixin vertical-align-ie($perc: 50%) {
+    html.cssreflections & {
+        position: relative;
+        top: $perc;
+        -webkit-transform: translateY(-$perc);
+        -ms-transform: translateY(-$perc);
+        transform: translateY(-$perc);
+    }
+}
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+$path: '/wp-content/themes/noco/dist/img';
+$color-loop: $green,
+$orange,
+$lime,
+$green,
+$orange,
+$lime,
+$green,
+$orange,
+$lime,
+$green,
+$orange,
+$lime;
+$color-loop-alt: $orange,
+$lime,
+$green,
+$orange,
+$lime,
+$green,
+$orange,
+$lime,
+$green,
+$orange,
+$lime;
+$color-loop-med: $green-med,
+$orange-med,
+$lime-med,
+$green-med,
+$orange-med,
+$lime-med,
+$green-med,
+$orange-med,
+$lime-med,
+$green-med,
+$orange-med,
+$lime-med;
+$color-loop-alt-med: $orange-med,
+$lime-med,
+$green-med,
+$orange-med,
+$lime-med,
+$green-med,
+$orange-med,
+$lime-med,
+$green-med,
+$orange-med,
+$lime-med;
+$color-loop-dark: $green-dark,
+$orange-dark,
+$lime-dark,
+$green-dark,
+$orange-dark,
+$lime-dark,
+$green-dark,
+$orange-dark,
+$lime-dark,
+$green-dark,
+$orange-dark,
+$lime-dark;
+$default-transition-duration: 500ms;
+$perspective: 300;
+$color-loop-alt-dark: $orange-dark,
+$lime-dark,
+$green-dark,
+$orange-dark,
+$lime-dark,
+$green-dark,
+$orange-dark,
+$lime-dark,
+$green-dark,
+$orange-dark,
+$lime-dark;
+$default-transition-duration: 500ms;
+$perspective: 300;

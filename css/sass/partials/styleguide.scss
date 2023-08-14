@@ -1,0 +1,56 @@
+body.page-template-__styleguide {
+    header,
+    footer {
+        display: none;
+    }
+    .marquee {
+        background-image: url(#{$path}/styleguide/header.jpg);
+        h5 {
+            color: $lime;
+            font-weight: 100;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-weight: 100;
+        }
+        &:before {
+            display: none;
+        }
+    }
+    section {
+        padding: 200px 0;
+        h3.under {
+            margin-bottom: 90px;
+        }
+        &.about {
+            background-color: $boxgrey;
+            .wrap {
+                @include make-xs-column(8);
+                @include make-xs-column-offset(2);
+            }
+        }
+        &.clearspace, &.typography {
+            .item {
+                @include make-xs-column(8);
+                @include make-xs-column-offset(2);
+            }
+        }
+        &.brand {
+            padding-bottom: 0;
+        }
+        &.final {
+            background: $bluegrey;
+            text-align: center;
+            color: #fff;
+            padding: 100px;
+            p {
+                font-size: $font-size-small;
+            }
+        }
+    }
+    
+    .sep.grey {
+        background: $boxgrey;
+    }
+}

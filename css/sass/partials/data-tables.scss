@@ -1,0 +1,177 @@
+.show-table-row {
+  display: table-row !important;
+}
+
+.sticky-top {
+  //@supports (position: sticky) {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  //}
+}
+
+.statebook-select-label,
+.statebook-select {
+  font-size: 13px;
+  margin: 0 5px;
+}
+
+.chart-data-col {
+  padding-top: 3rem;
+
+  h2 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #b2ea28;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    color: #000;
+    padding-bottom: 25px;
+  }
+}
+
+.doing-business-here-template-template-charts {
+  .quicklinks {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: $boxgrey;
+    border-bottom: 4px solid $white-box-border;
+    padding: $grid-gutter-width*2;
+    ul {
+      h4 {
+        text-transform: uppercase;
+        font-size: $font-size-h5;
+        text-transform: uppercase;
+      }
+      margin: 20px;
+      li,
+      li a {
+        color: $orange;
+        font-size: $font-size-h6;
+        font-weight: 400;
+        padding-bottom: 7px;
+      }
+    }
+  }
+}
+
+
+
+.js-table-toggle {
+  display: block;
+  font-size: 18px;
+  font-weight: normal;
+  color: $text;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $text;
+    text-decoration: none;
+  }
+
+   &::before {
+     font-size: 1.5rem;
+     margin-left: -.5rem;
+     padding-right: .5rem;
+     content: '\25ba';
+   }
+}
+
+.data-table {
+  border: 1px solid $gray-two;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 1em;
+
+  thead th {
+    color: #fff;
+    text-transform: none;
+    font-size: 21px;
+    font-weight: 500;
+    padding: 30px;
+    background: #232b2d;
+  }
+
+  tbody th {
+    text-align: center;
+    padding: 8px;
+    padding-left: $grid-gutter-width/2;
+    padding-right: $grid-gutter-width/2;
+    font-weight: 700;
+    vertical-align: middle;
+    border-bottom: 1px solid $gray-two;
+    border-top: 1px solid $gray-two;
+    border-right: 1px solid $gray-two;
+
+    &:first-child {
+      text-align: left;
+    }
+
+    &:hover,
+    .active {
+      background-color: $gray-one;
+    }
+  }
+
+  th.occupation-row.active {
+    background-color: $gray-one;
+  }
+
+  .occupation-row {
+    td {
+      border-right: 1px solid $gray-two;
+    }
+
+    .active {
+      background-color: #f3f3f3;
+      a::before {
+        content: '\25bc';
+      }
+    }
+    
+    &.active {
+      background-color: #f3f3f3;
+      a::before {
+        content: '\25bc';
+      }
+    }
+  }
+
+  tr {
+    &:hover td {
+      background-color: #f3f3f3;
+    }
+
+    &.js-table-toggle-row {
+      td:nth-of-type(2) {
+        border-right: 1px solid $gray-two;
+      }
+    }
+
+    td {
+      padding: 8px;
+      border: none;
+      background: 0 0;
+      float: none !important;
+      border-top: 1px solid $gray-two;
+      border-left: 1px solid $gray-two;
+      padding-left: $grid-gutter-width/2;
+      padding-right: $grid-gutter-width/2;
+      text-align: center;
+
+      &:first-child {
+        border-left: none;
+      }
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
+}
